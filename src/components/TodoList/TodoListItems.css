@@ -1,0 +1,47 @@
+.todoList {
+    margin: 0.2rem 0;
+    height: 7rem;
+    width: 30vw;
+    padding: 0.5rem 2rem;   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: var(--card);
+}
+.todoDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 500;
+    gap: 10px;
+}
+.todoDetail .heading{
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+.todoDetail .para{
+    font-size: 1rem;
+}
+@media (max-width: 1200px) {
+    .todoList{
+        width: 50vw;
+    }
+}
+@media (max-width: 768px){
+    .todoList{
+        flex-direction: column;
+        align-items: normal;
+        justify-content: space-evenly;
+        gap: 0;
+        height: 8rem;
+        width: 70vw;
+    }
+    .todoDetail{
+        gap: 5px;
+    }
+    .button{
+        display: flex;
+        justify-content: right;
+    }
+}
