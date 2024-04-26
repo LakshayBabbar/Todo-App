@@ -1,17 +1,19 @@
-import './TodoList.css';
-import TodoListItems from './TodoListItems';
+import "./TodoList.css";
+import TodoListItems from "./TodoListItems";
+import { useSelector } from "react-redux";
 
-export default function TodoList(props) {
-    
-    return (
-        <div className='todoLists'>
-            {props.elements.map((elements, index) =>
-                <TodoListItems key={Math.random()}
-                    id={index}
-                    title={elements.title}
-                    desc={elements.desc}
-                    selectItem={props.idSelector} />
-            )}
-        </div>
-    );
+export default function TodoList() {
+  const todos = useSelector((state) => state.todos.todos);
+  return (
+    <div className="todoLists">
+      {todos.map((todo) => (
+        <TodoListItems
+          key={todo.id}
+          id={todo.id}
+          name={todo.name}
+          description={todo.description}
+        />
+      ))}
+    </div>
+  );
 }

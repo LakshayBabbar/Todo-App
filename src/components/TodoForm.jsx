@@ -1,19 +1,21 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todoSlice";
 import "./TodoForm.css";
 
-export default function TodoForm(props) {
+export default function TodoForm() {
   const [enteredName, setName] = useState("");
   const [enteredDesc, setDescription] = useState("");
-
+  const dispatch = useDispatch();
   const onEnterName = (event) => setName(event.target.value);
   const onEnterDescription = (event) => setDescription(event.target.value);
   const onFormSubmit = (event) => {
     event.preventDefault();
     const data = {
-      title: enteredName,
-      desc: enteredDesc,
+      name: enteredName,
+      description: enteredDesc,
     };
-    props.onAddData(data);
+    dispatch(addTodo(data));
     setName("");
     setDescription("");
   };
